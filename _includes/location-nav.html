@@ -1,9 +1,12 @@
 {% if site.collections.size > 1 %}
-<ul class="location">
-  {%- for lieu in site.collections -%} {%- unless lieu.label == 'posts' %}
-  <li>
-    <a href="/{{ lieu.label }}">{{ lieu.label | capitalize }}</a>
-  </li>
-  {%- endunless %} {%- endfor %}
-</ul>
+  <ul class="location">
+    {%- for lieu in site.collections -%}
+      {%- assign collection_title = lieu.title | default: lieu.label | capitalize %}
+      {%- unless lieu.label == 'posts' %}
+        <li>
+          <a href="/{{ lieu.label }}">{{ collection_title }}</a>
+        </li>
+      {%- endunless %}
+    {%- endfor %}
+  </ul>
 {% endif %}
