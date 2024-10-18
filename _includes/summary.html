@@ -1,10 +1,15 @@
+
 <section
   id="ghTree"
   class="ghTree"
   data-title="tree">
   <header>
     {% assign collection_data = site.collections | where: "label", page.collection | first %}
-    <h1>{{ collection_data.title | default: page.collection | capitalize }}</h1>
+    {% assign title = collection_data.title | default: page.collection | capitalize %}
+    <h1>{{ title }}</h1>
+    <script>
+      document.title = "{{ title }}";
+  </script>
   </header>
   {% for lieu in site[page.collection] %}
     {% unless lieu.url contains "index.html" %}
