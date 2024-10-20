@@ -5,7 +5,10 @@ layout: default
 {%- include aside.html -%}
 <article class="blobContent" data-title="content">
   <p>
-    <a href="/{{ page.collection }}">
+    <a href="{{ site.baseurl }}/">
+      <i class="fas fa-home" title="accueil"></i>
+    </a> - 
+    <a href="{{ site.baseurl }}/{{ page.collection }}">
       <i class="fas fa-map-marked" title="liste des lieux"></i>
       Autres ressources pour :
       {% assign collection_data = site.collections | where: "label", page.collection | first %}
