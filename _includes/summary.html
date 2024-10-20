@@ -4,17 +4,12 @@
   class="ghTree"
   data-title="tree">
   <header>
-    {% assign collection_data = site.collections | where: "label", page.collection | first %}
-    {% assign title = collection_data.title | default: page.collection | capitalize %}
     <h1>
       <a href="{{ site.baseurl }}/">
         <i class="fas fa-home" title="accueil"></i>
       </a> - 
-      {{ title }}
+      {{ page.title }}
     </h1>
-    <script>
-      document.title = "{{ title }}";
-  </script>
   </header>
   {% for lieu in site[page.collection] %}
     {% unless lieu.url contains "index.html" %}
